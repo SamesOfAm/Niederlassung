@@ -1,0 +1,90 @@
+@import 'variables';
+
+#header {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: $content-width;
+  height: 30vh;
+  transform: translateX(-50%);
+  z-index: 100;
+  .inside {
+    height: 100%;
+    .mod_customnav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        width: 300px;
+        li {
+          list-style: none;
+          a {
+            color: white;
+            text-shadow: 0 0 10px black;
+            text-decoration: none;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+    .header-logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px;
+      overflow: visible;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 505px;
+        height: 400px;
+        background: #234766;
+        z-index: 100;
+        opacity: 0.8;
+        transform: rotate(-5.5deg) translate(-50%,-95px);
+      }
+      figure {
+        position: relative;
+        z-index: 200;
+      }
+    }
+    .header-plan-ambulant-logo {
+      position: absolute;
+      top: 0;
+      left: 75%;
+      width: 10vw;
+    }
+    .mod_form {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      .formbody {
+        display: flex;
+        .widget {
+          label {
+            display: none;
+          }
+        }
+        .widget-submit {
+          input {
+            width: 35px;
+          }
+        }
+      }
+    }
+    .mod_mobile_menu {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 80px;
+    }
+  }
+}
+
+

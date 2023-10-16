@@ -1,0 +1,10 @@
+<div class="entry-point-box">
+    <a href="<?= $this->link ?>">
+        <div class="entry-point-box-inside">
+            <img src="{{file::<?= $this->icon ?>}}">
+            <h3><?= $this->headline ?></h3>
+            <p><?= $this->subheadline ?></p>
+            <div class="entry-link-button">Weiterlesen</div>
+        </div>
+    </a>
+</div>

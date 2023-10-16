@@ -1,7 +1,82 @@
+@import 'variables';
+
+@font-face {
+  font-family: 'Barlow';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/Barlow-Regular.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'Barlow';
+  font-weight: 800;
+  font-style: normal;
+  src: url('../fonts/Barlow-Bold.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'Barlow';
+  font-weight: normal;
+  font-style: italic;
+  src: url('../fonts/Barlow-Italic.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'Barlow';
+  font-weight: 600;
+  font-style: normal;
+  src: url('../fonts/Barlow-SemiBold.ttf') format("truetype");
+}
+
 body {
-  color: white;
+  font-family: 'Barlow', sans-serif;
 }
 
 .wrapper {
   position: relative;
+}
+
+.white {
+  color: white;
+  a {
+    color: white;
+  }
+}
+
+p {
+  line-height: 1.6em;
+  letter-spacing: -0.4px;
+  font-size: 18px;
+}
+
+a {
+  transition: color 250ms;
+  &:hover {
+    color: $bright-blue !important;
+  }
+}
+
+p,a,strong,h1,h2,h3,h4,h5 {
+  position: relative;
+  z-index: 100;
+}
+
+.mod_article > .ce_image {
+  width: 90%;
+  max-width: $content-width;
+  margin: 40px auto;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@media screen and (max-width: $mobile) {
+  .mobile-only {
+    display: initial;
+  }
 }

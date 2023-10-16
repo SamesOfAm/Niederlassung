@@ -1,0 +1,121 @@
+@import 'variables';
+
+#title-image {
+  position: relative;
+  height: 65vh;
+  margin-bottom: 15vw;
+  overflow: visible;
+  &:after {
+    position: absolute;
+    content: "";
+    bottom: -8vw;
+    left: 0;
+    width: 100%;
+    height: 15vw;
+    background: url("../layout/Titelbild-Unterlegung.svg") no-repeat 0 100%/cover;
+  }
+  > .ce_image {
+    width: 100%;
+    max-width: initial;
+    height: 100%;
+    margin: 0;
+    img {
+      object-fit: cover;
+    }
+    figure {
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+#main {
+  .inside {
+    .mod_article {
+      > .ce_text {
+        width: 90%;
+        max-width: $content-width;
+        margin: 0 auto;
+        > p {
+          max-width: $text-width;
+          margin: 20px auto;
+          padding-top: 20px;
+          line-height: 1.5em;
+          font-size: 20px;
+          border-top: 1px solid white;
+        }
+      }
+      > .ce_text h1,h1 {
+        text-align: center;
+        max-width: 500px;
+        margin: 20px auto;
+        font-weight: 600;
+        text-decoration: underline;
+      }
+      > .ce_text h2,h2 {
+        position: relative;
+        z-index: 100;
+        text-align: center;
+        width: 100%;
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 0 18%;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+
+#news-network {
+  position: relative;
+  width: 100%;
+  background: url("../layout/Niederlassung-in-Thueringen-Hintergrund-Wald.jpg") no-repeat 0 100%/cover;
+  &:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, white 10%, transparent 40%, rgb(23, 0, 24) 100%);
+    z-index: 50;
+  }
+  > h2 {
+    color: white;
+  }
+  .network {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 100;
+    > .ce_image {
+      width: 25%;
+    }
+  }
+}
+
+.mod_article.akteure {
+  background: url('../layout/Niederlassung-in-Thueringen-Akteure-Hintergrund.svg') no-repeat 0 0/100% 80%;
+  min-height: 115vh;
+}
+
+@media screen and (max-width: $mobile) {
+  #title-image {
+    height: 350px;
+  }
+
+  #news-network .network > .ce_image {
+    width: 100%;
+  }
+}
+
+

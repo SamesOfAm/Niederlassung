@@ -1,0 +1,162 @@
+@import 'variables';
+
+.mobile_menu_trigger {
+  cursor: pointer;
+}
+
+.mobile_menu {
+  .inner {
+    background: url("../layout/Niederlassung-in-Thueringen-Hintergrund-Menu-neu.svg") no-repeat 0/cover;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      width: 90%;
+      max-width: $content-width;
+      margin: 0 auto;
+      > .ce_text:first-child {
+        width: 250px;
+        margin-top: 120px;
+        p {
+          display: flex;
+          justify-content: space-between;
+          width: 250px;
+          margin-top: 0;
+          a {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            &:after {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              content: '';
+              border-radius: 50%;
+              background: white;
+              opacity: 0;
+              transition: opacity 250ms;
+            }
+            &:hover:after {
+              opacity: .4;
+            }
+          }
+        }
+      }
+      .menu-logo {
+        width: 300px;
+      }
+      .mobile-menu-close {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        margin-top: 100px;
+        cursor: pointer;
+        display: inline-block;
+        &:after {
+          position: absolute;
+          top: 2.5%;
+          left: 2.5%;
+          width: 95%;
+          height: 95%;
+          content: '';
+          border-radius: 50%;
+          background: white;
+          opacity: 0;
+          transition: opacity 250ms;
+        }
+        &:hover:after {
+          opacity: .4;
+        }
+      }
+    }
+    .mobile-menu-navigations {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      height: 50vh;
+      max-width: $extra-width;
+      margin: 0 auto;
+      > nav {
+        width: 23%;
+        height: 270px;
+        h2 {
+          border-bottom: 1px solid white;
+          text-transform: uppercase;
+          color: $text-emphasis;
+          font-size: 17px;
+          padding: 10px 0;
+        }
+        ul {
+          padding: 0;
+          margin: 0;
+          li {
+            margin: 10px 0;
+            strong,a {
+              color: white;
+              text-decoration: none;
+              text-transform: uppercase;
+            }
+            strong {
+              font-weight: bold;
+              color: $text-emphasis;
+            }
+          }
+        }
+      }
+    }
+  }
+  .mobile-menu-footer {
+    width: 50%;
+    margin-top: auto;
+    img {
+      display: inline-block;
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .mobile_menu .inner {
+    .mobile-menu-header {
+      flex-wrap: wrap;
+      flex-direction: column-reverse;
+      > .ce_text:first-child {
+        width: 145px;
+        margin: 0 auto;
+        p {
+          width: 100%;
+          a {
+            width: 35px;
+            height: 35px;
+          }
+        }
+      }
+      .mobile-menu-close {
+        width: 55px;
+        height: 55px;
+        margin-top: 40px;
+        margin-left: auto;
+      }
+      .menu-logo {
+        width: 170px;
+        top: 0;
+        transform: translateY(-53px);
+      }
+    }
+    .mobile-menu-navigations {
+      height: auto;
+      > nav {
+        width: 100%;
+      }
+    }
+    .mobile-menu-footer {
+      width: 90%;
+    }
+  }
+}

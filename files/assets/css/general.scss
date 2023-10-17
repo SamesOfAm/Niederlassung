@@ -65,6 +65,11 @@ p,a,strong,h1,h2,h3,h4,h5,ul {
   }
 }
 
+#main .inside .mod_article > .ce_text.teaserbox .image_container.float_above ~ h2 {
+  color: white;
+  background: $main-color;
+}
+
 .mod_article {
   padding: 40px 0;
   > .ce_image {

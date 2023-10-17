@@ -1,6 +1,6 @@
 <?php
 return array(
-  'label' => array('Einstieg Box', 'Eine Box für den Einstieg in ein Thema von der Startseite aus...'),
+  'label' => array('Button', 'Button'),
   'types' => array('content', 'module'),
   'contentCategory' => 'texts',
   'moduleCategory' => 'miscellaneous',
@@ -10,24 +10,20 @@ return array(
     'type' => 'none',
   ),
   'fields' => array(
-    'headline' => array(
-      'label' => array('Überschrift', '...'),
+    'text' => array(
+      'label' => array('Buttontext', '...'),
       'inputType' => 'text'
     ),
-    'subheadline' => array(
-      'label' => array('Unterüberschrift', '...'),
-      'inputType' => 'text'
+    'color' => array(
+      'label' => array('Farbe', '...'),
+      'inputType' => 'select',
+      'options' => ['Blau', 'Gruen', 'Transparent']
     ),
     'link' => array(
       'label' => array('Link', 'Beschreibung...'),
       'eval' => array('pageTree' => true),
       'inputType' => 'url'
-    ),
-    'icon' => array(
-      'label' => array('Icon', 'Beschreibung...'),
-      'eval' => array('filesOnly' => true),
-      'inputType' => 'fileTree'
-    ),
+    )
   ),
 );
 

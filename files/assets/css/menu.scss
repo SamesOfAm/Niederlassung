@@ -15,7 +15,7 @@
       justify-content: space-between;
       width: 90%;
       max-width: $content-width;
-      margin: 0 auto;
+      margin: 5% auto 0;
       > .ce_text:first-child {
         width: 250px;
         margin-top: 120px;
@@ -157,6 +157,15 @@
     }
     .mobile-menu-footer {
       width: 90%;
+    }
+  }
+}
+
+@media screen and (min-width: 2400px) {
+  .mobile_menu .inner {
+    display: block;
+    .mobile-menu-footer {
+      margin: 0 auto;
     }
   }
 }

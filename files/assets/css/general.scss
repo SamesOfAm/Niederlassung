@@ -38,7 +38,7 @@ body {
 
 .white {
   color: white;
-  a {
+  p,a,strong,h1,h2,h3,h4,h5 {
     color: white;
   }
 }
@@ -56,15 +56,22 @@ a {
   }
 }
 
-p,a,strong,h1,h2,h3,h4,h5 {
+p,a,strong,h1,h2,h3,h4,h5,ul {
   position: relative;
   z-index: 100;
+  color: $main-color;
+  &.white {
+    color: white;
+  }
 }
 
-.mod_article > .ce_image {
-  width: 90%;
-  max-width: $content-width;
-  margin: 40px auto;
+.mod_article {
+  padding: 40px 0;
+  > .ce_image {
+    width: 90%;
+    max-width: $content-width;
+    margin: 40px auto;
+  }
 }
 
 .mobile-only {

@@ -41,14 +41,22 @@
         box-sizing: border-box;
         padding: 35px 60px;
         z-index: 100;
-        color: black;
+        .info {
+          margin-top: 0;
+        }
         h3 a {
           text-decoration: none;
-          color: black;
+          color: $main-color;
+        }
+        p {
+          color: $main-color;
         }
         .read-more a {
           text-decoration: none;
-          color: black;
+          color: $main-color;
+          strong {
+            color: $main-color;
+          }
         }
       }
     }

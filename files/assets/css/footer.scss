@@ -15,9 +15,15 @@
       width: 30%;
       .footer-info {
         color: white;
-        .footer-address .ce_text p a {
+        .footer-address .ce_text p {
           color: white;
-          text-decoration: none;
+          strong {
+            color: white;
+          }
+          a {
+            color: white;
+            text-decoration: none;
+          }
         }
         .footer-social {
           .ce_text p a {

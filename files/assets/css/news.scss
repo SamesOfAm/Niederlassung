@@ -25,6 +25,7 @@
           text-transform: uppercase;
           font-weight: normal;
           font-size: 18px;
+          background: transparent;
           a {
             color: white;
             text-decoration: none;
@@ -33,6 +34,9 @@
         .ce_text {
           padding: 0 15px;
           color: white;
+          p {
+            color: white;
+          }
         }
       }
       .more {

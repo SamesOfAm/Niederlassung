@@ -63,6 +63,35 @@
   }
 }
 
+#main .inside .mod_article .event-list-page {
+  width: 90%;
+  max-width: $content-width;
+  margin: 0 auto;
+  .header {
+    display: none;
+  }
+  .event {
+    background: #cecece;
+    padding: 25px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: 10px 0;
+    h2 {
+      background: transparent;
+      padding-left: 0;
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+#main .inside .mod_article .mod_eventreader {
+  width: 90%;
+  max-width: $content-width;
+  margin: 0 auto;
+}
+
 @media screen and (max-width: $mobile) {
   .mod_article.events-home .mod_eventlist .event {
     .calendar-icon {

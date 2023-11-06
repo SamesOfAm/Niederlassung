@@ -1,0 +1,3 @@
+<div class="stoerer">
+  <a href="<?= $this->link ?>"><?= $this->text ?></a>
+</div>

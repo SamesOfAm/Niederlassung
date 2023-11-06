@@ -204,6 +204,7 @@
   width: 100%;
   max-width: initial;
   padding: 40px 0;
+  margin: 0 auto;
   > figure.image_container {
     position: absolute;
     top: 0;
@@ -216,6 +217,40 @@
     max-width: 1100px;
     margin: 40px auto;
     box-sizing: border-box;
+  }
+}
+
+.stoerer-article {
+  position: relative;
+  margin-top: 40px;
+  margin-bottom: -40px;
+  padding: 0;
+  overflow: visible;
+  z-index: 50;
+  .stoerer {
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    display: block;
+    width: 150px;
+    height: 150px;
+    transform: translateY(50%);
+    font-size: 25px;
+    text-align: center;
+    a {
+      text-decoration: none;
+      display: flex;
+      width: 150px;
+      height: 150px;
+      align-items: center;
+      border-radius: 50%;
+      background-image: linear-gradient(to bottom,$bright-blue, $bright-green);
+      border: 5px solid white;
+      color: white;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 18px;
+    }
   }
 }
 

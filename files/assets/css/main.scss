@@ -12,7 +12,7 @@
     bottom: -8vw;
     left: 0;
     width: 100%;
-    height: 15vw;
+    height: 20vw;
     background: url("../layout/Titelbild-Unterlegung.svg") no-repeat -2px 100%/cover;
   }
   > .ce_image {
@@ -37,7 +37,7 @@
 
 #main {
   .inside {
-    .mod_article {
+    .mod_article,.regional-portrait {
       > .ce_text {
         width: 90%;
         max-width: $content-width;
@@ -80,7 +80,7 @@
         padding: 8px 11px;
         font-weight: 600;
         text-decoration: none;
-        background: $main-color;
+        background: $bright-blue;
         line-height: 2em;
         color: white;
         box-decoration-break: clone;
@@ -107,7 +107,7 @@
 #news-network {
   position: relative;
   width: 100%;
-  background: url("../layout/Niederlassung-in-Thueringen-Hintergrund-Wald.jpg") no-repeat 0 100%/cover;
+  background: url("../../bilder/titelbilder/bg-footer.webp") no-repeat 0 100%/cover;
   &:after {
     position: absolute;
     content: '';
@@ -115,7 +115,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(to bottom, white 10%, transparent 40%, rgb(23, 0, 24) 100%);
+    // background-image: linear-gradient(to bottom, white 10%, transparent 40%, rgb(23, 0, 24) 100%);
     z-index: 50;
   }
   > h2 {
@@ -141,7 +141,7 @@
   min-height: 115vh;
 }
 
-#main .inside .mod_article > .ce_text.button {
+#main .inside .mod_article > .ce_text.button,#main .inside .mod_article > .mod_eventlist .ce_text.button {
   margin: 20px auto;
   padding: 0;
   > p {
@@ -151,7 +151,7 @@
     a {
       display: inline-block;
       width: 90%;
-      max-width: 340px;
+      max-width: 380px;
       margin: 0;
       padding: 7px 20px;
       text-transform: uppercase;
@@ -162,6 +162,7 @@
       text-shadow: 0 0 5px;
       transition: background-color 250ms;
       box-sizing: border-box;
+      text-decoration: none;
       .button-arrow {
         width: 18px;
         margin-right: 5px;
@@ -254,13 +255,46 @@
   }
 }
 
+.ce_download,.ce_downloads {
+  width: 90%;
+  max-width: $content-width;
+  margin: 0 auto;
+  .download-element a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    background: #8bd317;
+    padding: 12px 15px 12px 45px;
+    font-weight: bold;
+    color: white;
+    &:before {
+      position: absolute;
+      top: 14px;
+      left: 15px;
+      width: 20px;
+      height: 25px;
+      content: '';
+      background: url("../layout/download.svg") no-repeat 0 /cover;
+    }
+  }
+}
+
 @media screen and (max-width: $mobile) {
   #title-image {
     height: 350px;
+    &:after {
+      bottom: 0vw;
+      height: 30vw;
+    }
   }
 
   #news-network .network > .ce_image {
     width: 100%;
+  }
+
+  #main .inside .mod_article > .ce_text > p {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 

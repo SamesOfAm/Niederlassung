@@ -1,0 +1,42 @@
+@import 'variables';
+
+#main .inside .mod_article > .ce_text > table {
+  table-layout: fixed;
+  width: 100%;
+  border: none;
+  tr {
+    &:first-child {
+      background: $bright-green;
+      color: white;
+      td {
+        padding: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 25px;
+      }
+    }
+    &:nth-child(2n+3) {
+      background: #d3dae0;
+    }
+  }
+  td {
+    border: none;
+    padding: 20px;
+    &:first-child {
+      width: 25%;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    ul {
+      padding: 0 0 0 30px;
+      margin: 0;
+      li {
+        margin: 10px 0;
+        a {
+          font-weight: normal;
+          color: #244766;
+        }
+      }
+    }
+  }
+}

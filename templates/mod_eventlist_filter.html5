@@ -1,0 +1,37 @@
+<?php $this->extend('block_unsearchable'); ?>
+
+<?php $this->block('content'); ?>
+<div class="event-filter">
+  <h3>Filter</h3>
+    <div class="filter-lists">
+        <div class="filter-list">
+            <h4>Veranstaltungsname</h4>
+            <ul class="filter-category">
+                <li data-filter="future">Doctors Future</li>
+                <li data-filter="operation">Operation Karriere</li>
+                <li data-filter="championship">Medimeisterschaften</li>
+                <li data-filter="ball">Klinikerball</li>
+            </ul>
+        </div>
+        <div class="filter-list">
+            <h4>Zielgruppe</h4>
+            <ul class="filter-category">
+                <li data-filter="students">Medizinstudierende</li>
+                <li data-filter="contract">Vertragsärzte</li>
+                <li data-filter="staff">Praxispersonal</li>
+            </ul>
+        </div>
+    </div>
+    <div class="reset-filter">
+        <div class="ce_text button Transparent">
+            <p>
+                <a href="#">Filter zurücksetzen</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+  <?= $this->events ?>
+  <?= $this->pagination ?>
+
+<?php $this->endblock(); ?>

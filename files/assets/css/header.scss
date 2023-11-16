@@ -44,7 +44,7 @@
         position: absolute;
         top: 0;
         left: 50%;
-        background-image: linear-gradient(to bottom,#000a22, #04152f);
+        background-image: linear-gradient(to bottom, $main-color, $bright-blue); //background-image: linear-gradient(to bottom,#000a22, #04152f);
         z-index: -1;
         opacity: 0.8;
       }
@@ -101,7 +101,7 @@
             border-radius: 20px;
             box-shadow: none;
             border: 2px solid white;
-            background: #234766;
+            background: $bright-blue; //background: #234766;
             height: 40px;
             box-sizing: border-box;
             color: white;

@@ -1,0 +1,45 @@
+<div class="regional-portrait">
+    <div class="ce_text block">
+        <h1><?= $this->headline ?></h1>
+    </div>
+    <div class="portrait-top">
+        <div class="portrait-top-left">
+            <div class="portrait-short-info">
+                <h3>Steckbrief</h3>
+                <ul>
+                    <?php foreach($this->shortInfo as $info): ?>
+                        <li><?= $info->info ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        </div>
+        <div class="portrait-top-right">
+            <div class="ce_sliderStart block">
+                <div class="content-slider slider-start" data-config="3500,300,0,1">
+                    <div class="slider-wrapper">
+                      <?php foreach($this->slider as $image): ?>
+                          <div class="ce_image block">
+                              <figure class="image_container">
+                                  <img src="{{file::<?= $image->image ?>}}" alt="">
+                              </figure>
+                          </div>
+                      <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portrait-bottom">
+        <div class="ce_text block">
+            <?= $this->description ?>
+        </div>
+        <div class="further-links">
+            <h3>Weiterführende Links</h3>
+          <ul>
+            <?php foreach($this->links as $link): ?>
+               <li><a href="<?= $link->url ?>" target="_blank"><?= $link->text ?></a></li>
+            <?php endforeach; ?>
+          </ul>
+        </div>
+    </div>
+</div>

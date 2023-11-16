@@ -1,0 +1,68 @@
+@import 'variables';
+
+.map-wrapper {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  .ce_image {
+    position: relative;
+    z-index: 10;
+  }
+}
+
+.mappoint {
+  position: absolute;
+  .mappoint-icon {
+    position: relative;
+    width: 24px;
+    cursor: pointer;
+    z-index: 30;
+    transition: transform 250ms;
+    &:hover {
+      transform: scale(1.4);
+    }
+  }
+  .mappoint-inside {
+    opacity: 0;
+    transform: translateY(-50px);
+    position: relative;
+    width: 200px;
+    height: 100px;
+    background: $main-color;
+    transition: opacity 250ms ease-out, transform 250ms ease-out, z-index 0ms;
+    transition-delay: 0ms, 0ms, 250ms;
+    z-index: 0;
+    &.showing {
+      opacity: 1;
+      transform: translateY(0);
+      z-index: 20;
+      transition: opacity 250ms ease-out, transform 250ms ease-out, z-index 0ms;
+    }
+    .mappoint-close {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      color: white;
+      font-size: 38px;
+      cursor: pointer;
+      line-height: .5em;
+      user-select: none;
+    }
+    .mappoint-inside-text {
+      position: absolute;
+      top: 25px;
+      left: 20px;
+      h3 {
+        margin: 0;
+        color: white;
+      }
+      p {
+        margin: 0;
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+}

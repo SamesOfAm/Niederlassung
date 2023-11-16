@@ -71,16 +71,33 @@
     display: none;
   }
   .event {
-    background: #cecece;
+    display: flex;
     padding: 25px;
     box-sizing: border-box;
     border-radius: 10px;
     margin: 10px 0;
-    h2 {
+    > p {
+      width: 10%;
+      margin: 0;
+    }
+    > h2 {
+      width: 35%;
+      margin: 0;
+      padding: 0;
       background: transparent;
-      padding-left: 0;
+      line-height: 1.1em;
+      text-align: left;
       a {
         text-decoration: none;
+      }
+    }
+    > .target-group {
+      width: 20%;
+    }
+    > .ce_text {
+      width: 35%;
+      > p {
+        margin: 0;
       }
     }
   }
@@ -90,6 +107,39 @@
   width: 90%;
   max-width: $content-width;
   margin: 0 auto;
+}
+
+.event-filter {
+  h3 {
+    margin-bottom: 0;
+  }
+  .filter-lists {
+    display: flex;
+    .filter-category {
+      width: 200px;
+      li {
+        position: relative;
+        width: 100%;
+        cursor: pointer;
+        display: inline-block;
+        margin: 5px 0;
+        &:before {
+          position: absolute;
+          top: 4px;
+          left: -20px;
+          width: 10px;
+          height: 10px;
+          content: '';
+          background: transparent;
+          border-radius: 50%;
+          border: 2px solid $bright-blue;
+        }
+        &.active:before {
+          background: $bright-blue;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: $mobile) {

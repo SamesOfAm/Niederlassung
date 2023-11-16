@@ -4,8 +4,6 @@ return array(
   'types' => array('content', 'module'),
   'contentCategory' => 'texts',
   'moduleCategory' => 'miscellaneous',
-  'beTemplate' => 'be_wildcard',
-  'standardFields' => array('headline', 'cssID'),
   'wrapper' => array(
     'type' => 'none',
   ),
@@ -23,6 +21,10 @@ return array(
       'label' => array('Link', 'Beschreibung...'),
       'eval' => array('pageTree' => true),
       'inputType' => 'url'
+    ),
+    'targetBlank' => array(
+      'label' => array('Neuer Tab?'),
+      'inputType' => 'checkbox'
     )
   ),
 );

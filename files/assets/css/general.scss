@@ -36,11 +36,17 @@ body {
   position: relative;
 }
 
-.white {
+#main .inside > .mod_article.white {
   color: white;
-  p,a,strong,h1,h2,h3,h4,h5 {
-    color: white;
+  > .ce_text {
+    p,a,strong,h1,h2,h3,h4,h5 {
+      color: white;
+    }
   }
+}
+
+.white p {
+  color: white;
 }
 
 p {

@@ -1,0 +1,38 @@
+@import 'variables';
+
+#main .inside .mod_article.blog .mod_newslist {
+  .layout_latest {
+    width: 100%;
+    background: $bright-blue;
+    margin: 40px 0;
+    padding: 35px;
+    box-sizing: border-box;
+    h2 {
+      background: none;
+      padding: 0;
+      a {
+        color: white;
+        text-decoration: none;
+        &:hover {
+          color: #cecece !important;
+        }
+      }
+    }
+    p {
+      color: white !important;
+      span {
+        color: white !important;
+      }
+    }
+    .more {
+      a {
+        background: transparent;
+        text-align: left;
+        padding: 0;
+        &:hover {
+          color: #cecece !important;
+        }
+      }
+    }
+  }
+}

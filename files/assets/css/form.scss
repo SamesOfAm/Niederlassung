@@ -1,0 +1,82 @@
+@import 'variables';
+
+
+#main .mod_article > .ce_form {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  .widget {
+    margin: 10px 0;
+    label {
+      display: none;
+    }
+    input, textarea,select {
+      display: block;
+      width: 250px;
+      padding: 8px 10px;
+      border: none;
+      background: $bright-blue;
+      color: white;
+      font-family: 'Barlow', sans-serif;
+      cursor: pointer;
+      box-sizing: border-box;
+      transition: filter 250ms;
+      &:hover {
+        filter: brightness(1.2);
+      }
+    }
+    &.widget-submit button {
+       display: inline-block;
+      background-color: #d3dae0;
+      border: 2px solid #cecece;
+      text-shadow: 0 0 5px black;
+       text-transform: uppercase;
+       border-radius: 3px;
+       padding: 12px 20px;
+       font-weight: bold;
+       letter-spacing: 1px;
+       color: white;
+       cursor: pointer;
+       transition: background-color 250ms;
+      &:hover {
+        background-color: white;
+      }
+     }
+    &.widget-checkbox {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      fieldset {
+        legend {
+          display: none;
+        }
+        margin: 0;
+        padding: 0;
+        border: none;
+        input {
+          display: inline;
+          width: 15px;
+          margin: 0;
+        }
+        label {
+          display: inline;
+        }
+      }
+    }
+  }
+  form.kommune {
+    label {
+      display: inline-block;
+      width: 250px;
+    }
+    input,textarea,select {
+      display: inline-block;
+      width: 350px;
+    }
+  }
+}
+
+
+
+
+
+

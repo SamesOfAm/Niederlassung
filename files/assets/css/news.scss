@@ -65,6 +65,36 @@
   }
 }
 
+.mod_article > .news-social-list {
+  width: 90%;
+  max-width: 380px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .ce_image.news-social {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    figure {
+      text-align: center;
+      img {
+        width: 80px;
+        transition: background-color 250ms;
+        border-radius: 50%;
+        &:hover {
+          background-color: rgba(0,158,227,.2);
+        }
+      }
+      figcaption {
+        font-weight: bold;
+        text-transform: uppercase;
+        color: $bright-blue;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: $mobile) {
   #main .inside .mod_newslist .layout_latest {
     width: 100%;

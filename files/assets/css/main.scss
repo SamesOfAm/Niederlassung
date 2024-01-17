@@ -2,14 +2,14 @@
 
 #title-image {
   position: relative;
-  height: 65vh;
-  margin-bottom: 10vw;
+  height: 50vh;
+  margin-bottom: 2vw;
   padding-top: 0;
   overflow: visible;
   &:after {
     position: absolute;
     content: "";
-    bottom: -8vw;
+    bottom: -5vw;
     left: 0;
     width: 100%;
     height: 20vw;
@@ -30,6 +30,25 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+    }
+  }
+}
+
+#main .inside .mod_article >.ce_text.akteure-logos {
+  max-width: initial;
+  p {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left: 0;
+    padding-right: 0;
+    gap: 50px;
+    a {
+      display: flex;
+      width: 14%;
+      &:nth-child(3) {
+        width: 260px;
       }
     }
   }
@@ -138,10 +157,15 @@
 
 .mod_article.akteure {
   background: url('../layout/Niederlassung-in-Thueringen-Akteure-Hintergrund.svg') no-repeat 0 0/100% 80%;
-  min-height: 115vh;
+  min-height: 75vh;
+  padding-bottom: 0;
+  > .ce_text:first-child {
+    border-bottom: 1px solid;
+    padding-bottom: 25px;
+  }
 }
 
-#main .inside .mod_article > .ce_text.button,#main .inside .mod_article > .mod_eventlist .ce_text.button {
+#main .inside .mod_article .ce_text.button,#main .inside .mod_article > .mod_eventlist .ce_text.button {
   margin: 20px auto;
   padding: 0;
   > p {
@@ -295,6 +319,17 @@
   #main .inside .mod_article > .ce_text > p {
     padding-left: 0;
     padding-right: 0;
+  }
+
+  #main .inside .mod_article >.ce_text.akteure-logos p {
+    a {
+      width: 100%;
+      justify-content: center;
+      &:nth-child(3) {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
   }
 }
 

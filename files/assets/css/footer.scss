@@ -2,7 +2,7 @@
 
 #footer {
   width: 100%;
-  padding: 180px 0 90px;
+  padding: 100px 0 90px;
   background: black url("../layout/Niederlassung-in-Thueringen-Hintergrund-Menu.svg") no-repeat 0/cover;
   .inside {
     display: flex;
@@ -11,6 +11,17 @@
     width: 90%;
     max-width: 1100px;
     margin: 0 auto;
+    .footer-menu {
+      width: 100%;
+      .mobile-menu-navigations {
+        @include menu;
+        h2 {
+          height: 40px;
+          display: flex;
+          align-items: end;
+        }
+      }
+    }
     .footer-left {
       width: 30%;
       .footer-info {
@@ -90,6 +101,9 @@
                 padding-left: 40px;
                 color: white;
                 cursor: pointer;
+                a {
+                  color: white;
+                }
                 &:before {
                   position: absolute;
                   content: '';

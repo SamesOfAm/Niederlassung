@@ -1,0 +1,113 @@
+<div class="hover-map">
+    {{file::<?= $this->mapfilename; ?>}}
+</div>
+
+<div class="popup">
+    <?php foreach($this->areas as $area): ?>
+      <?php
+        $parsedName = str_replace([' ','/'], '-', $area->name);
+      ?>
+        <div id="popup-<?= $parsedName ?>" data-positions="<?= $area->gpPositions + $area->pedPositions ?>" class="popup-content">
+            <span><?= $area->name ?></span>
+            <?php if($area->gpPositions > 0): ?><span><strong>Stellen Allg.-Mediziner</strong>: <?= $area->gpPositions ?></span><?php endif; ?>
+            <?php if($area->pedPositions > 0): ?><span><strong>Stellen KJPP</strong>: <?= $area->pedPositions ?></span><?php endif; ?>
+            <span><a href="<?= $area->link ?>">Zu den Stellen</a></span>
+            <span class="further-info-link"><a href="#">Über diesen Landkreis</a></span>
+            <span id="presentation" style="display:none"><?= $area->presentation ?></span>
+        </div>
+    <?php endforeach; ?>
+</div>
+
+<div id="layover-bg"></div>
+<div id="layover"></div>
+
+<script>
+  const popup = document.querySelector('.popup');
+  const allPaths = document.querySelectorAll('path');
+  const allPopupContents = document.querySelectorAll('.popup-content');
+  const layoverBg = document.getElementById('layover-bg');
+  const layover = document.getElementById('layover');
+  const allFurtherInfoLinks = document.querySelectorAll('.further-info-link');
+  let enteredPopup = false;
+
+  const showPopup = (area,boxX,boxY) => {
+    popup.style.top = boxY + 'px';
+    popup.style.left = boxX + 'px';
+    popup.classList.add('shown');
+    area.classList.add('shown');
+  }
+
+  const hidePopup = (area) => {
+    popup.classList.remove('shown');
+    area && area.classList.remove('shown');
+  }
+
+  popup.addEventListener('mouseenter', function() {
+    enteredPopup = true;
+  })
+
+  popup.addEventListener('mouseleave', function() {
+    enteredPopup = false;
+    hidePopup();
+    allPopupContents.forEach(content => {
+      content.classList.remove('shown');
+    })
+  })
+
+  allPaths.forEach(path => {
+    const popupContent = document.getElementById('popup-'+path.getAttribute('id')) || document.getElementById('popup-'+path.getAttribute('serif:id')) || null;
+    if(popupContent) {
+      const numberPositions = popupContent.getAttribute('data-positions');
+      if(numberPositions >= 10) {
+        path.style.fill = 'rgb(90, 121, 24)';
+      }
+      else if(numberPositions >= 5) {
+        path.style.fill = 'rgb(117, 165, 16)';
+      }
+      else if(numberPositions >= 2) {
+        path.style.fill = 'rgb(128, 180, 19)';
+      }
+      path.addEventListener('mouseenter', function(event) {
+        setTimeout(function() {
+          const parentWidth = event.target.parentElement.getBoundingClientRect().width;
+          const parentXOffset =  event.target.parentElement.getBoundingClientRect().x;
+          let xCoord;
+          if(event.target.getBoundingClientRect().x <= ((parentWidth / 2) - parentXOffset)) {
+            xCoord = event.target.getBoundingClientRect().x + event.target.getBoundingClientRect().width / 2;
+          } else {
+            xCoord = (event.target.getBoundingClientRect().x + event.target.getBoundingClientRect().width /2) - 200;
+          }
+          const yCoord = event.target.getBoundingClientRect().y + event.target.getBoundingClientRect().height / 2;
+          popupContent && showPopup(popupContent,xCoord,yCoord);
+        },15)
+      });
+      path.addEventListener('mouseleave', function() {
+        setTimeout(function() {
+          if(!enteredPopup) {
+            const popupContent = document.getElementById('popup-'+path.getAttribute('id')) || document.getElementById('popup-'+path.getAttribute('serif:id')) || null;
+            popupContent && hidePopup(popupContent);
+          }
+        },10)
+      });
+    }
+  });
+
+  allFurtherInfoLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+      layoverBg.classList.add('active');
+      event.preventDefault();
+      const layoverClose = document.createElement('div');
+      layoverClose.id = 'layover-close';
+      layoverClose.innerHTML = '&times;';
+      layover.appendChild(layoverClose);
+      layover.innerHTML += link.parentElement.querySelector('#presentation').innerHTML;
+      layover.classList.add('active');
+      document.getElementById('layover-close').addEventListener('click', function() {
+        layover.innerHTML = '';
+        layoverBg.classList.remove('active');
+        layover.classList.remove('active');
+      });
+    })
+  });
+
+</script>

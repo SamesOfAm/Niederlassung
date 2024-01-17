@@ -38,6 +38,20 @@ return array(
       'inputType' => 'textarea',
       'eval' => array('rte' => 'tinyMCE')
     ),
+    'accordions' => array(
+      'label' => array('Akkordeen', 'Rechts auf "Neues Element" klicken'),
+      'inputType' => 'list',
+      'fields' => array(
+        'headline' => array(
+          'label' => array('Überschrift', 'Klickbare Überschrift, um Akkordeon zu öffnen'),
+          'inputType' => 'text'
+        ),
+        'content' => array(
+          'label' => array('Akkordeon', 'Der Inhalt eines Akkordeons'),
+          'inputType' => 'textarea'
+        )
+      )
+    ),
     'links' => array(
       'label' => array('Weiterführende Links', 'Rechts auf "Neues Element" klicken'),
       'eval' => array('pageTree' => true),
@@ -53,6 +67,20 @@ return array(
         )
       )
     ),
+    'buttons' => array(
+      'label' => array('Buttons', 'Rechts auf "Neues Element" klicken'),
+      'inputType' => 'list',
+      'fields' => array(
+        'url' => array(
+          'label' => array('URL', 'Die URL, auf die verlinkt werden soll'),
+          'inputType' => 'url'
+        ),
+        'text' => array(
+          'label' => array('Text', 'Der anzuzeigende Text'),
+          'inputType' => 'text'
+        )
+      )
+    )
   ),
 );
 

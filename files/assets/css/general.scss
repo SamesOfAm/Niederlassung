@@ -45,8 +45,10 @@ body {
   }
 }
 
-.white p {
-  color: white;
+.white {
+  p,h3 {
+    color: white;
+  }
 }
 
 p {

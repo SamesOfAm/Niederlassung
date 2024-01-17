@@ -10,7 +10,7 @@
   <h2><a href="<?= $this->href ?>" title="<?= $this->title ?> (<?php if ($this->day): ?><?= $this->day ?>, <?php endif; ?><?= $this->date ?><?php if ($this->time): ?> <?= $this->time ?><?php endif; ?>)"<?= $this->target ?>><?= $this->link ?></a></h2>
 
   <?php if ($this->location): ?>
-    <p class="location"><?= $this->location ?><?php if ($this->address): ?> (<?= $this->address ?>)<?php endif; ?></p>
+    <p class="location"><?= $this->location ?></p>
   <?php endif; ?>
 
   <?php if ($this->addImage): ?>
@@ -18,8 +18,10 @@
   <?php endif; ?>
 
     <div class="target-group">
-      <span class="for"><strong>Für:</strong></span>
-      <?= $this->address ?>
+      <p>
+        <span class="for"><strong>Für:</strong></span>
+        <?= $this->address ?>
+      </p>
     </div>
 
     <div class="ce_text block">

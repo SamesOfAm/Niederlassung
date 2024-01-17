@@ -27,8 +27,8 @@
     opacity: 0;
     transform: translateY(-50px);
     position: relative;
-    width: 200px;
-    height: 100px;
+    width: 300px;
+    height: 150px;
     background: $main-color;
     transition: opacity 250ms ease-out, transform 250ms ease-out, z-index 0ms;
     transition-delay: 0ms, 0ms, 250ms;
@@ -54,7 +54,7 @@
       top: 25px;
       left: 20px;
       h3 {
-        margin: 0;
+        margin-top: 0;
         color: white;
       }
       p {
@@ -65,4 +65,81 @@
       }
     }
   }
+}
+
+.hover-map {
+  max-width: 1100px;
+  margin: 80px auto;
+  width: 90%;
+  path {
+    cursor: pointer;
+    &:hover {
+      filter: brightness(1.2);
+    }
+  }
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 150px;
+  padding: 25px;
+  box-sizing: border-box;
+  background: white;
+  &.shown {
+    display: block;
+  }
+  .popup-content {
+    display: none;
+    &.shown {
+      display: block;
+    }
+    span {
+      display: block;
+    }
+  }
+}
+
+#layover-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  opacity: 0;
+  z-index: -10;
+  transition: opacity 250ms;
+  &.active {
+    opacity: .5;
+    z-index: 100;
+  }
+}
+
+#layover {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90vw;
+  height: 85vh;
+  background: white;
+  box-shadow: 0 0 20px #444;
+  transform: translate(-50%,-50%);
+  z-index: 200;
+  &.active {
+    display: block;
+  }
+}
+
+#layover-close {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  font-size: 50px;
+  line-height: 0em;
+  cursor: pointer;
 }

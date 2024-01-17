@@ -14,10 +14,28 @@
     .portrait-top-right {
       .ce_image {
         height: 250px;
-        img {
+        figure {
           width: 100%;
           height: 100%;
-          object-fit: cover;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+  .portrait-bottom {
+    > .ce_text p {
+      margin: 80px 0;
+    }
+    .portrait-accordions {
+      margin: 40px 0 80px;
+      section {
+        width: 100%;
+        &:first-child:last-child {
+          border-bottom: 2px solid black;
         }
       }
     }

@@ -2,7 +2,7 @@
 
 <?php $this->block('content'); ?>
 <div class="event-filter">
-  <h3>Filter</h3>
+    <h3>Filter</h3>
     <div class="filter-lists">
         <div class="filter-list">
             <h4>Veranstaltungsname</h4>
@@ -21,6 +21,15 @@
                 <li data-filter="staff">Praxispersonal</li>
             </ul>
         </div>
+        <div class="filter-list">
+            <h4>Ort</h4>
+            <ul class="filter-category">
+                <li data-filter="leipzig">Leipzig</li>
+                <li data-filter="jena">Jena</li>
+                <li data-filter="frankfurt">Frankfurt</li>
+                <li data-filter="berlin">Berlin</li>
+            </ul>
+        </div>
     </div>
     <div class="reset-filter">
         <div class="ce_text button Transparent">
@@ -31,7 +40,7 @@
     </div>
 </div>
 
-  <?= $this->events ?>
-  <?= $this->pagination ?>
+<?= $this->events ?>
+<?= $this->pagination ?>
 
 <?php $this->endblock(); ?>

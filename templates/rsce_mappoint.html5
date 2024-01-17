@@ -7,7 +7,8 @@
       <div class="mappoint-inside-text">
           <h3><?= $this->name ?></h3>
           <p>
-              <a href="<?= $this->link ?>">Mehr erfahren</a>
+              <a target="_blank" href="https://www.kv-thueringen.de/praxisberatung/zulassungsmoeglichkeiten/aktuelle-zulassungsmoeglichkeiten">Aktuelle Zulassungsmöglichkeiten</a><br>
+              <a href="<?= $this->link ?>">Portrait</a>
           </p>
       </div>
   </div>

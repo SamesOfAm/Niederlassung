@@ -6,7 +6,7 @@ if(document.querySelector('.event-filter')) {
   const startFilter = (category,keyword) => {
     allEvents.forEach(event => {
       fadeOut(event, 250);
-      if(event.querySelector(category).innerHTML.includes(keyword)) {
+      if(event.querySelector(category) && event.querySelector(category).innerHTML.includes(keyword)) {
         fadeOutAndIn(event, 250);
       }
     })
@@ -42,6 +42,18 @@ if(document.querySelector('.event-filter')) {
           break;
         case 'ball':
           startFilter('h2 a','Klinikerball');
+          break;
+        case 'leipzig':
+          startFilter('.location','Leipzig');
+          break;
+        case 'berlin':
+          startFilter('.location','Berlin');
+          break;
+        case 'jena':
+          startFilter('.location','Jena');
+          break;
+        case 'frankfurt':
+          startFilter('.location','Frankfurt');
           break;
         default:
       }

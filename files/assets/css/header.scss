@@ -7,7 +7,7 @@
   width: 90%;
   max-width: $content-width;
   margin: 0 auto;
-  height: 30vh;
+  height: 150px;
   transform: translateX(-50%);
   z-index: 100;
   .inside {
@@ -128,7 +128,7 @@
     }
     .mod_mobile_menu {
       position: absolute;
-      bottom: 0;
+      bottom: -25px;
       right: 0;
       width: 80px;
       transition: filter 250ms;

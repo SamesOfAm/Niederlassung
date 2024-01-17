@@ -75,41 +75,7 @@
       }
     }
     .mobile-menu-navigations {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      width: 90%;
-      height: 50vh;
-      max-width: $extra-width;
-      margin: 0 auto;
-      > nav {
-        width: 24%;
-        height: 270px;
-        h2 {
-          border-bottom: 1px solid white;
-          text-transform: uppercase;
-          color: $text-emphasis;
-          font-size: 17px;
-          padding: 10px 0;
-        }
-        ul {
-          padding: 0;
-          margin: 0;
-          li {
-            margin: 10px 0;
-            strong,a {
-              color: white;
-              text-decoration: none;
-              text-transform: uppercase;
-            }
-            strong {
-              font-weight: bold;
-              color: $text-emphasis;
-            }
-          }
-        }
-      }
+      @include menu;
     }
   }
   .mobile-menu-footer {

@@ -32,8 +32,9 @@ body {
   font-family: 'Barlow', sans-serif;
 }
 
-.wrapper {
+#wrapper {
   position: relative;
+  background: url("../layout/header-bg.svg") no-repeat 19vw -1vw/55vw;
 }
 
 #main .inside > .mod_article.white {

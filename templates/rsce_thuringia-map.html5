@@ -1,19 +1,44 @@
 <div class="hover-map">
     {{file::<?= $this->mapfilename; ?>}}
+    {{file::map-bg-file.html5}}
+</div>
+
+<div class="zip-search">
+    <form>
+        <input type="text" placeholder="Suche nach Planungsbereich">
+        <div class="dropdown">
+            <ul>
+                <?php foreach($this->areas as $area): ?>
+                    <li><a href="#"><?= $area->name ?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </form>
+</div>
+
+<div class="closed-notification">
+    <p>
+        <strong>Ihr bevorzugter Planungsbereich ist geschlossen?</strong><br>Lassen Sie sich hier auf die Warteliste unserer KVT-Praxisberater vormerken. Die Aufnahme in die Warteliste erfolgt jedoch nur, wenn ein Nachweis über die Eintragung ins Arztregister vorgelegt werden kann.
+    </p>
+    <p>
+        <a href="{{file::d24c1448-b548-11ee-9506-0242ac1b0002}}" target="_blank">Für Haus- und Kinderärzte</a><br>
+        <a href="{{file::d25c0558-b548-11ee-9506-0242ac1b0002}}" target="_blank">Für Fachärzte</a>
+    </p>
+    <p>(Nach dem digitalen Ausfüllen, z.B. im nächsten Tab, können Sie <a href="mailto:arztregister@kvt.de">eine Mail an diese Adresse schicken</a> und Ihr Formular anhängen.)</p>
 </div>
 
 <div class="popup">
+  <div class="close-popup">&times;</div>
     <?php foreach($this->areas as $area): ?>
       <?php
         $parsedName = str_replace([' ','/'], '-', $area->name);
       ?>
         <div id="popup-<?= $parsedName ?>" data-positions="<?= $area->gpPositions + $area->pedPositions ?>" class="popup-content">
-            <span><?= $area->name ?></span>
+            <h4><?= $area->name ?></h4>
             <?php if($area->gpPositions > 0): ?><span><strong>Stellen Allg.-Mediziner</strong>: <?= $area->gpPositions ?></span><?php endif; ?>
             <?php if($area->pedPositions > 0): ?><span><strong>Stellen KJPP</strong>: <?= $area->pedPositions ?></span><?php endif; ?>
-            <span><a href="<?= $area->link ?>">Zu den Stellen</a></span>
-            <span class="further-info-link"><a href="#">Über diesen Landkreis</a></span>
-            <span id="presentation" style="display:none"><?= $area->presentation ?></span>
+            <span><a target="_blank" href="<?= $area->link ?>">Zu den Stellen</a></span>
+            <span class="further-info-link"><a target="_blank" href="<?= $area->presentation ?>">Über diesen Landkreis</a></span>
         </div>
     <?php endforeach; ?>
 </div>
@@ -22,13 +47,22 @@
 <div id="layover"></div>
 
 <script>
+  const hoverMap = document.querySelector('.hover-map');
+  const mapCoords = [hoverMap.getBoundingClientRect().x,hoverMap.getBoundingClientRect().y];
+  const scrollTarget = window.pageYOffset + mapCoords[1];
   const popup = document.querySelector('.popup');
   const allPaths = document.querySelectorAll('path');
   const allPopupContents = document.querySelectorAll('.popup-content');
   const layoverBg = document.getElementById('layover-bg');
   const layover = document.getElementById('layover');
   const allFurtherInfoLinks = document.querySelectorAll('.further-info-link');
+  const zipSearch = document.querySelector('.zip-search input');
+  const zipSearchList = document.querySelector('.zip-search ul');
+  const zipSearchListElements = document.querySelectorAll('.zip-search ul li');
+  const zipSearchListElementLinks = document.querySelectorAll('.zip-search ul li a');
+  const closePopup = document.querySelector('.close-popup');
   let enteredPopup = false;
+  let darkPaths = false;
 
   const showPopup = (area,boxX,boxY) => {
     popup.style.top = boxY + 'px';
@@ -37,9 +71,11 @@
     area.classList.add('shown');
   }
 
-  const hidePopup = (area) => {
+  const hidePopup = () => {
     popup.classList.remove('shown');
-    area && area.classList.remove('shown');
+    allPopupContents.forEach(content => {
+      content.classList.remove('shown');
+    })
   }
 
   popup.addEventListener('mouseenter', function() {
@@ -47,11 +83,10 @@
   })
 
   popup.addEventListener('mouseleave', function() {
-    enteredPopup = false;
-    hidePopup();
-    allPopupContents.forEach(content => {
-      content.classList.remove('shown');
-    })
+    if(!darkPaths) {
+      enteredPopup = false;
+      hidePopup();
+    }
   })
 
   allPaths.forEach(path => {
@@ -68,6 +103,7 @@
         path.style.fill = 'rgb(128, 180, 19)';
       }
       path.addEventListener('mouseenter', function(event) {
+        hidePopup();
         setTimeout(function() {
           const parentWidth = event.target.parentElement.getBoundingClientRect().width;
           const parentXOffset =  event.target.parentElement.getBoundingClientRect().x;
@@ -84,30 +120,123 @@
       path.addEventListener('mouseleave', function() {
         setTimeout(function() {
           if(!enteredPopup) {
-            const popupContent = document.getElementById('popup-'+path.getAttribute('id')) || document.getElementById('popup-'+path.getAttribute('serif:id')) || null;
-            popupContent && hidePopup(popupContent);
+            hidePopup();
           }
         },10)
       });
     }
   });
 
-  allFurtherInfoLinks.forEach(link => {
-    link.addEventListener('click', function(event) {
-      layoverBg.classList.add('active');
-      event.preventDefault();
-      const layoverClose = document.createElement('div');
-      layoverClose.id = 'layover-close';
-      layoverClose.innerHTML = '&times;';
-      layover.appendChild(layoverClose);
-      layover.innerHTML += link.parentElement.querySelector('#presentation').innerHTML;
-      layover.classList.add('active');
-      document.getElementById('layover-close').addEventListener('click', function() {
-        layover.innerHTML = '';
-        layoverBg.classList.remove('active');
-        layover.classList.remove('active');
-      });
-    })
+  document.body.addEventListener('click', function(event) {
+    if(event.target !== zipSearch) {
+      zipSearchList.style.display = "none";
+      zipSearch.classList.remove('dropdown-open');
+    }
   });
+
+  zipSearchListElementLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+      const areaName = link.innerHTML;
+      const parsedName = areaName.replace(/ |\//g, '-');
+      event.preventDefault();
+      allPopupContents.forEach(content => {
+        if(content.id.includes(parsedName)) {
+          allPaths.forEach(path => {
+            path.classList.remove('dark');
+            const name = path.getAttribute('serif:id') || path.getAttribute('id');
+            if(name === areaName) {
+              popup.style.position = "absolute";
+              darkPaths = true;
+              hidePopup();
+              window.scrollTo({
+                top: scrollTarget + 100,
+                left: 0,
+                behavior: 'smooth'
+              });
+              // popup.style.transform = 'translateY(-150px)';
+              setTimeout(function(){
+                path.classList.add('inactive');
+                const pathTop = path.getBoundingClientRect().y;
+                const pathLeft = Math.round(path.getBoundingClientRect().x);
+                const pathHeight = path.getBoundingClientRect().height;
+                const pathWidth = path.getBoundingClientRect().width;
+                const parentWidth = path.parentElement.getBoundingClientRect().width;
+                const parentXOffset =  path.parentElement.getBoundingClientRect().x;
+                let xCoord;
+                if(pathLeft <= ((parentWidth / 2) + parentXOffset)) {
+                  xCoord = pathLeft + pathWidth;
+                } else {
+                  xCoord = pathLeft - 280;
+                }
+                const yCoord = pathTop + pathHeight;
+                showPopup(content, xCoord,yCoord);
+                closePopup.classList.add('active');
+              },300)
+            } else {
+              path.classList.add('dark');
+            }
+          })
+        }
+      })
+    })
+  })
+
+  document.addEventListener('keyup', function(event) {
+    if(event.key === 'Escape') {
+      zipSearchList.style.display = 'none';
+      zipSearch.classList.remove('dropdown-open');
+    }
+  })
+
+  zipSearch.addEventListener('input', function() {
+    zipSearchList.style.display = 'block';
+    zipSearch.classList.add('dropdown-open');
+    zipSearchListElements.forEach(element => {
+      element.classList.remove('remaining');
+      element.classList.remove('filtered-out');
+      const parsedInputValue = zipSearch.value.toLowerCase();
+      const areaName = element.innerHTML.toLowerCase();
+      if(!areaName.includes(parsedInputValue)) {
+        element.classList.remove('remaining');
+        element.classList.add('filtered-out');
+      } else {
+        element.classList.add('remaining');
+      }
+    })
+  })
+
+  zipSearch.addEventListener('click', function() {
+    zipSearchList.style.display = 'block';
+    zipSearch.classList.add('dropdown-open');
+  })
+
+  const zipSearchSubmitHandler = () => {
+    const allRemainingElements = document.querySelectorAll('.remaining');
+    if(allRemainingElements.length === 1) {
+      document.querySelector('.remaining').querySelector('a').click();
+    }
+  }
+
+  zipSearch.closest('form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    zipSearchSubmitHandler();
+  })
+
+  /*zipSearchListElements.forEach(element => {
+    element.addEventListener('click', function() {
+      zipSearchSubmitHandler();
+    })
+  })*/
+
+  closePopup.addEventListener('click', function() {
+    closePopup.classList.remove('active');
+    hidePopup();
+    allPaths.forEach(path => {
+      path.classList.remove('dark');
+      path.classList.remove('inactive');
+    })
+    darkPaths = false;
+    popup.style.position = "fixed";
+  })
 
 </script>

@@ -33,9 +33,10 @@ $footer-form: #006B7A;
       li {
         margin: 10px 0;
         strong,a {
-          color: white;
+          color: $main-color;
           text-decoration: none;
           text-transform: uppercase;
+          font-size: 26px;
         }
         strong {
           font-weight: bold;

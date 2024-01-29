@@ -5,8 +5,9 @@
 }
 
 .mobile_menu {
+  z-index: 200;
   .inner {
-    background: url("../layout/Niederlassung-in-Thueringen-Hintergrund-Menu-neu.svg") no-repeat 0/cover;
+    background: white url("../layout/map-lines.svg") no-repeat 0 105%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -14,8 +15,14 @@
       display: flex;
       justify-content: space-between;
       width: 90%;
-      max-width: $content-width;
+      max-width: 1500px;
       margin: 5% auto 0;
+      .mobile-menu-header-right {
+        display: flex;
+        align-items: center;
+        height: 200px;
+        width: 250px;
+      }
       > .ce_text:first-child {
         width: 250px;
         margin-top: 120px;
@@ -48,13 +55,39 @@
         }
       }
       .menu-logo {
-        width: 300px;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        box-shadow: 0 0 20px #cecece;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        img {
+          width: 60%;
+          height: 60%;
+        }
+      }
+      .mobile-menu-social {
+        overflow: visible;
+        p {
+          width: 115px;
+          display: flex;
+          justify-content: space-between;
+          a {
+            img {
+              filter: drop-shadow(0 0 10px #9f9f9f);
+              box-shadow: 0 0 10px #cecece;
+              border-radius: 50%;
+            }
+          }
+        }
       }
       .mobile-menu-close {
         position: relative;
+        margin-left: auto;
         width: 80px;
         height: 80px;
-        margin-top: 100px;
         cursor: pointer;
         display: inline-block;
         &:after {
@@ -71,6 +104,11 @@
         }
         &:hover:after {
           opacity: .4;
+        }
+        img {
+          filter: drop-shadow(0 0 10px #9f9f9f);
+          box-shadow: 0 0 10px #cecece;
+          border-radius: 50%;
         }
       }
     }

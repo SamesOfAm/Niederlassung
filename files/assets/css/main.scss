@@ -56,6 +56,7 @@
 
 #main {
   .inside {
+    min-height: 50vh;
     .mod_article,.regional-portrait {
       > .ce_text {
         width: 90%;
@@ -85,7 +86,7 @@
           }
         }
         h2 ~ p, h1 ~ p:nth-child(2) {
-          border-top: 2px solid;
+          border-top: 2px solid $bright-green;
         }
         > h2:first-child {
           margin-top: 0;
@@ -99,7 +100,8 @@
         padding: 8px 11px;
         font-weight: 600;
         text-decoration: none;
-        background: $bright-blue;
+        background: $bright-green;
+        font-size: 30px;
         line-height: 2em;
         color: white;
         box-decoration-break: clone;

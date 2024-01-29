@@ -32,9 +32,9 @@ return array(
           'eval' => array('tl_class' => 'w50')
         ),
         'presentation' => array(
-          'label' => array('Landkreis-Vorstellung', 'Kurze Beschreibung des Landkreises'),
-          'inputType' => 'textarea',
-          'eval' => array('rte' => 'tinyMCE', 'tl_class' => 'clr')
+          'label' => array('Link zur Landkreis-Vorstellung', ''),
+          'inputType' => 'url',
+          'eval' => array('tl_class' => 'clr')
         ),
         'link' => array(
           'label' => array('Link zu den Stellen auf KVT.de', ''),

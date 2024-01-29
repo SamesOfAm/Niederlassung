@@ -1,3 +1,13 @@
+if(document.querySelector('.closed-notification')) {
+  const closedNotification = document.querySelector('.closed-notification');
+  closedNotification.addEventListener('mouseenter', function(){
+    closedNotification.classList.add('open');
+  })
+  closedNotification.addEventListener('mouseleave', function(){
+    closedNotification.classList.remove('open');
+  })
+}
+
 if(document.querySelector('.mappoint')) {
   const allMapPoints = document.querySelectorAll('.mappoint-icon');
   const allInfoBoxes = document.querySelectorAll('.mappoint');

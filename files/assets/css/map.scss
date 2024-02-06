@@ -7,7 +7,7 @@
 }
 
 .map-lines-bg {
-  transform: translateY(-150px);
+  padding: 0;
 }
 
 .map-wrapper {
@@ -49,7 +49,7 @@
   right: 31vw;
   z-index: 20;
   input {
-    width: 250px;
+    width: 256px;
     outline: none;
     padding: 8px 18px;
     border-radius: 20px;
@@ -261,4 +261,31 @@
   font-size: 50px;
   line-height: 0em;
   cursor: pointer;
+}
+
+@media screen and (max-width: $mobile) {
+  .mod_article.map {
+    display: none;
+  }
+
+  .mod_article.entry-points {
+    transform: none;
+    margin: 0 auto;
+  }
+
+  .entry-point-box {
+    height: auto;
+    padding-top: 0;
+  }
+
+  .entry-point-box a .entry-point-box-inside p {
+    padding: 0 15px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  .entry-point-box a .entry-point-box-inside h3 {
+    padding:0 0 10px;
+    font-size: 16px;
+  }
 }

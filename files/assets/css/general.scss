@@ -65,6 +65,10 @@ a {
   }
 }
 
+*:not(nav):not(.dropdown):not(td) > ul {
+  padding-left: 175px !important;
+}
+
 p,a,strong,h1,h2,h3,h4,h5,ul {
   position: relative;
   z-index: 100;
@@ -94,6 +98,22 @@ p,a,strong,h1,h2,h3,h4,h5,ul {
 
 .text-center {
   text-align: center;
+}
+
+body.stiftungspraxis {
+  #header .inside .mod_customnav {
+    display: none;
+  }
+  #mobile-menu-1-trigger {
+    display: none !important;
+  }
+  .stiftungspraxis-only {
+    display: block;
+  }
+}
+
+.stiftungspraxis-only {
+  display: none;
 }
 
 @media screen and (max-width: $mobile) {

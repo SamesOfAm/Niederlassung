@@ -31,7 +31,7 @@
   color: white;
   z-index: 20;
   box-sizing: border-box;
-  padding: 0px 25px;
+  padding: 0 25px;
   cursor: pointer;
   transition: height 250ms;
   overflow: hidden;
@@ -173,6 +173,60 @@
       pointer-events: none;
     }
   }
+  &.fach {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  > svg:first-child {
+    opacity: 0;
+    transition: opacity 500ms;
+  }
+  z-index: 0;
+  &.active {
+    z-index: 10;
+    > svg:first-child {
+      opacity: 1;
+      transition: opacity 500ms;
+    }
+  }
+}
+
+.switch-maps-button {
+  position: absolute;
+  top: 7vw;
+  right: 30vw;
+  width: 330px;
+  text-transform: uppercase;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 20;
+  > div {
+    cursor: pointer;
+  }
+  .toggle {
+    width: 65px;
+    height: 35px;
+    border-radius: 20px;
+    background: #94d609;
+    position: relative;
+    top: -7px;
+  }
+  .toggle-lever {
+    background: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    transition: transform 500ms;
+    &.toggled {
+      transform: translateX(30px);
+    }
+  }
 }
 
 .popup {
@@ -261,6 +315,65 @@
   font-size: 50px;
   line-height: 0em;
   cursor: pointer;
+}
+
+.region-list-subpage {
+  display: none;
+}
+
+#map-subpage {
+  .hover-map {
+    display: none;
+  }
+  .zip-search {
+    display: none;
+  }
+  .closed-notification {
+    display: none;
+  }
+  .region-list-subpage {
+    display: block;
+    .region-list-entry {
+      width: 90%;
+      max-width: 800px;
+      margin: 20px auto;
+      border-radius: 5px;
+      box-sizing: border-box;
+      padding: 25px;
+      background: #D6DFF2;
+      h4 {
+        margin: 0;
+        font-size: 20px;
+      }
+    }
+    .ce_tabcontrol {
+      .tabcontrol_tabs {
+        width: 90%;
+        max-width: 800px;
+        margin: 20px auto;
+        ul {
+          padding-left: 0 !important;
+          display: flex;
+          justify-content: space-between;
+          list-style: none;
+          li {
+            width: 50%;
+            text-align: center;
+            padding: 30px;
+            box-sizing: border-box;
+            cursor: pointer;
+            background: #eaeff9;
+            border-radius: 5px 5px 0 0;
+            text-transform: uppercase;
+            font-weight: bold;
+            &.selected {
+              background: #d6dff2;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: $mobile) {

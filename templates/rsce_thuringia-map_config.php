@@ -17,17 +17,12 @@ return array(
       'inputType' => 'list',
       'fields' => array(
         'name' => array(
-          'label' => array('Name', 'Name des Landkreises'),
+          'label' => array('Name', 'Name des Planungsbereiches'),
           'inputType' => 'select',
           'options' => array('Altenburg','Apolda','Arnstadt','Artern','Bad Langensalza','Bad Lobenstein','Bad Salzungen','Dornburg-Camburg / Bürgel','Eisenach','Eisenberg','Erfurt-Stadt','Gera-Land','Gera-Stadt','Gotha','Greiz','Heiligenstadt','Hermsdorf / Bad Klosterlausnitz','Hildburghausen','Ilmenau','Jena-Stadt','Kahla','Leinefelde-Worbis','Meiningen','Mühlhausen','Neuhaus / Lauscha','Nordhausen','Pößneck','Saalfeld / Rudolstadt / Bad Blankenburg','Schleiz','Schmalkalden','Schmölln / Gößnitz','Sömmerda','Sondershausen','Sonneberg','Stadtroda','Suhl-Stadt','Weimar-Land','Weimar-Stadt','Zeulenroda-Triebis')
         ),
         'gpPositions' => array(
-          'label' => array('Hausarzt-Stellen', 'Wieviele offene Hausarzt-Stellen gibt es hier?'),
-          'inputType' => 'text',
-          'eval' => array('tl_class' => 'w50')
-        ),
-        'pedPositions' => array(
-          'label' => array('KJPP-Stellen', 'Wieviele offene KJPP-Stellen gibt es hier?'),
+          'label' => array('Haus- und Kinderarzt-Stellen', 'Wieviele offene Haus- und Kinderarzt-Stellen gibt es hier?'),
           'inputType' => 'text',
           'eval' => array('tl_class' => 'w50')
         ),

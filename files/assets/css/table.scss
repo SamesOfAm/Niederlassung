@@ -30,12 +30,13 @@
     ul {
       padding: 0 0 0 30px;
       margin: 0;
-      color: $bright-blue;
+      list-style: disclosure-closed;
+      color: $main-color;
       li {
         margin: 10px 0;
         a {
           font-weight: normal;
-          color: $bright-blue;
+          color: $main-color;
         }
       }
     }

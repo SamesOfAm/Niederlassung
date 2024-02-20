@@ -5,7 +5,7 @@
 }
 
 .mobile_menu {
-  z-index: 200;
+  z-index: 300;
   .inner {
     background: white url("../layout/map-lines.svg") no-repeat 0 105%;
     display: flex;
@@ -21,7 +21,7 @@
         display: flex;
         align-items: center;
         height: 200px;
-        width: 250px;
+        width: 260px;
       }
       > .ce_text:first-child {
         width: 250px;
@@ -57,6 +57,7 @@
       .menu-logo {
         width: 200px;
         height: 200px;
+        margin-top: 2vw;
         border-radius: 50%;
         box-shadow: 0 0 20px #cecece;
         display: flex;
@@ -70,11 +71,15 @@
       }
       .mobile-menu-social {
         overflow: visible;
+        > div {
+          width: 140px;
+          overflow: visible;
+        }
         p {
-          width: 115px;
           display: flex;
           justify-content: space-between;
           a {
+            display: flex;
             img {
               filter: drop-shadow(0 0 10px #9f9f9f);
               box-shadow: 0 0 10px #cecece;
@@ -115,6 +120,9 @@
     }
     .mobile-menu-navigations {
       @include menu;
+      justify-content: left;
+      gap: 50px;
+      align-items: start;
     }
   }
   .mobile-menu-footer {
@@ -130,7 +138,6 @@
   .mobile_menu .inner {
     .mobile-menu-header {
       flex-wrap: wrap;
-      flex-direction: column-reverse;
       > .ce_text:first-child {
         width: 145px;
         margin: 0 auto;
@@ -145,13 +152,25 @@
       .mobile-menu-close {
         width: 55px;
         height: 55px;
-        margin-top: 40px;
         margin-left: auto;
       }
+      .mobile-menu-header-right {
+        width: 50vw;
+        max-width: 200px;
+      }
       .menu-logo {
-        width: 170px;
+        width: 33vw;
+        height: 33vw;
+        transform: none;
         top: 0;
-        transform: translateY(-53px);
+      }
+      .mobile-menu-social  p {
+        width: 25vw;
+        max-width: 90px;
+        a img {
+          width: 10vw;
+          max-width: 40px;
+        }
       }
     }
     .mobile-menu-navigations {
@@ -166,11 +185,11 @@
   }
 }
 
-@media screen and (min-width: 2400px) {
+/*@media screen and (min-width: 2400px) {
   .mobile_menu .inner {
     display: block;
     .mobile-menu-footer {
       margin: 0 auto;
     }
   }
-}
+}*/

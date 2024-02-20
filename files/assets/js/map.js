@@ -48,4 +48,40 @@ if(document.querySelector('.mappoint')) {
   })
 }
 
+if(document.querySelector('.switch-maps-button')) {
+  const toggle = document.querySelector('.switch-maps-button .toggle');
+  const lever = document.querySelector('.toggle-lever');
+  const gpMap = document.querySelector('.hover-map');
+  const fachMap = document.querySelector('.hover-map.fach');
+  const activateGp = document.querySelector('.activate-gp');
+  const activateSpecialists = document.querySelector('.activate-specialists');
+  let toggled = false;
+  toggle.addEventListener('click', function() {
+    if(!toggled) {
+      lever.classList.add('toggled');
+      fachMap.classList.add('active');
+      gpMap.classList.remove('active');
+      toggled = true;
+    } else {
+      lever.classList.remove('toggled');
+      fachMap.classList.remove('active');
+      gpMap.classList.add('active');
+      toggled = false;
+    }
+  })
+  activateGp.addEventListener('click', function() {
+    lever.classList.remove('toggled');
+    fachMap.classList.remove('active');
+    gpMap.classList.add('active');
+    toggled = false;
+  })
+  activateSpecialists.addEventListener('click', function() {
+    lever.classList.add('toggled');
+    fachMap.classList.add('active');
+    gpMap.classList.remove('active');
+    toggled = true;
+  })
+}
+
+
 

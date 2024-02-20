@@ -1,0 +1,9 @@
+<div class="entry-point-box three-links">
+    <div class="entry-point-box-inside">
+        <img src="{{file::<?= $this->icon ?>}}">
+        <h3><?= $this->headline ?></h3>
+        <a href="<?= $this->button1Link ?>" class="entry-link-button"><?= $this->button1Text ?></a>
+        <a href="<?= $this->button2Link ?>" class="entry-link-button"><?= $this->button2Text ?></a>
+        <a href="<?= $this->button3Link ?>" class="entry-link-button"><?= $this->button3Text ?></a>
+    </div>
+</div>

@@ -2,36 +2,27 @@
 
 #main .inside .mod_article.blog .mod_newslist {
   .layout_latest {
-    width: 100%;
-    background: $bright-blue;
-    margin: 40px 0;
-    padding: 35px;
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    border-radius: 5px;
     box-sizing: border-box;
+    padding: 25px;
+    background: #D6DFF2;
     h2 {
       background: none;
       padding: 0;
+      line-height: 1.5em;
       a {
-        color: white;
         text-decoration: none;
-        &:hover {
-          color: #cecece !important;
-        }
-      }
-    }
-    p {
-      color: white !important;
-      span {
-        color: white !important;
       }
     }
     .more {
       a {
+        color: #234766;
         background: transparent;
         text-align: left;
         padding: 0;
-        &:hover {
-          color: #cecece !important;
-        }
       }
     }
   }

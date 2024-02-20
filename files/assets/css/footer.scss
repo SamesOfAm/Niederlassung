@@ -74,11 +74,11 @@
         input, textarea {
           display: inline-block;
           width: 100%;
-          background: $footer-form;
+          background: white;
           border: none;
           margin: 4px 0;
           padding: 8px 10px;
-          color: white;
+          color: black;
           font-family: 'Barlow', sans-serif;
           cursor: pointer;
           transition: filter 250ms;
@@ -102,10 +102,10 @@
                 display: inline-block;
                 width: 100%;
                 padding-left: 40px;
-                color: white;
+                color: black;
                 cursor: pointer;
                 a {
-                  color: white;
+                  color: black;
                 }
                 &:before {
                   position: absolute;
@@ -114,7 +114,7 @@
                   left: 0;
                   width: 25px;
                   height: 25px;
-                  background: $footer-form;
+                  background: white;
                   font-size: 20px;
                   text-align: center;
                   transition: filter 250ms;
@@ -127,6 +127,7 @@
                 display: none;
                 &:checked ~ label:before {
                   content: '✓';
+                  color: black;
                 }
               }
             }

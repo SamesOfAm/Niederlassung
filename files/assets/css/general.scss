@@ -119,5 +119,12 @@ body.stiftungspraxis {
 @media screen and (max-width: $mobile) {
   .mobile-only {
     display: initial;
+    &.mobile-intro {
+      display: block;
+      margin-bottom: 40px !important;
+    }
+  }
+  .desktop-only {
+    display: none;
   }
 }

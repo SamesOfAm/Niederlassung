@@ -171,11 +171,20 @@
         transform: translateX(-50%);
         z-index: 300;
         top: 5px;
-        width: auto;
+        width: 100%;
         h4 {
           margin: 10px 0;
           width: 100%;
-          text-align: center;
+          text-align: left;
+        }
+        ul {
+          li {
+            display: flex;
+            align-items: center;
+            &:not(:last-child) {
+              margin-right: 10px;
+            }
+          }
         }
       }
       .mod_mobile_menu {

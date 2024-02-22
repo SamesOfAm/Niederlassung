@@ -21,11 +21,6 @@ return array(
           'inputType' => 'select',
           'options' => array('Altenburger Land', 'Eichsfeld', 'Erfurt, Stadt', 'Gotha', 'Greiz/Gera', 'Hildburghausen', 'Ilm Kreis', 'Jena, Stadt', 'Kyffhäuserkreis', 'Nordhausen', 'Saale Holzland Kreis', 'Saale Orla Kreis', 'Saalfeld Rudolstadt', 'Schmalkalden Meiningen/Suhl', 'Sonneberg', 'Sömmerda', 'Unstrut Hainich Kreis', 'Wartburgkreis/Eisenach', 'Weimarer Land, Weimar')
         ),
-        'gpPositions' => array(
-          'label' => array('Hausarzt-Stellen', 'Wieviele offene Hausarzt-Stellen gibt es hier?'),
-          'inputType' => 'text',
-          'eval' => array('tl_class' => 'w50')
-        ),
         'auPositions' => array(
           'label' => array('Au-Stellen', 'Wieviele offene Augenarzt-Stellen gibt es hier?'),
           'inputType' => 'text',

@@ -55,6 +55,7 @@
   }
   ul {
     display: none;
+    width: 282px;
     margin: 0;
     padding: 0 0 10px 10px;
     list-style: none;
@@ -71,6 +72,14 @@
         padding: 4px 8px;
         color: #134a21;
         text-decoration: none;
+        box-sizing: border-box;
+      }
+      &:last-child {
+        a {
+          &:hover {
+            color: #134a21 !important;
+          }
+        }
       }
     }
   }
@@ -366,9 +375,19 @@
       }
     }
   }
+  .map-wrapper-fach {
+    .region-list-entry {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 }
 
 @media screen and (max-width: $mobile) {
+  #map-subpage .map-wrapper-fach .region-list-entry {
+    display: block;
+  }
+
   .mod_article.map {
     display: none;
   }

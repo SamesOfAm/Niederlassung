@@ -36,33 +36,23 @@ return array(
           'inputType' => 'text',
           'eval' => array('tl_class' => 'w50')
         ),
+        'hPositions' => array(
+          'label' => array('H-Stellen', 'Wieviele offene Hautarzt-Stellen gibt es hier?'),
+          'inputType' => 'text',
+          'eval' => array('tl_class' => 'w50')
+        ),
+        'hnoPositions' => array(
+          'label' => array('HNO-Stellen', 'Wieviele offene Hals-Nasen-Ohrenarzt-Stellen gibt es hier?'),
+          'inputType' => 'text',
+          'eval' => array('tl_class' => 'w50')
+        ),
         'nPositions' => array(
           'label' => array('N-Stellen', 'Wieviele offene Nervenheilkunde-Stellen gibt es hier?'),
           'inputType' => 'text',
           'eval' => array('tl_class' => 'w50')
         ),
-        'doppelfachPositions' => array(
-          'label' => array('Doppelfacharzt-Stellen', 'Wieviele offene Doppelfacharzt-Stellen gibt es hier?'),
-          'inputType' => 'text',
-          'eval' => array('tl_class' => 'w50')
-        ),
         'psychPositions' => array(
           'label' => array('Psych-Stellen', 'Wieviele offene Psychotherapeuten-Stellen gibt es hier?'),
-          'inputType' => 'text',
-          'eval' => array('tl_class' => 'w50')
-        ),
-        'aerztlPsychPositions' => array(
-          'label' => array('Ärztliche Psych-Stellen', 'Wieviele offene ärztliche Psychotherapeuten-Stellen gibt es hier?'),
-          'inputType' => 'text',
-          'eval' => array('tl_class' => 'w50')
-        ),
-        'kjPsychPositions' => array(
-          'label' => array('KJ-Stellen', 'Wieviele offene KJ-Psychotherapeuten-Stellen gibt es hier?'),
-          'inputType' => 'text',
-          'eval' => array('tl_class' => 'w50')
-        ),
-        'psychSomPositions' => array(
-          'label' => array('Psychosomatiker-Stellen', 'Wieviele offene Psychosomatiker-Stellen gibt es hier?'),
           'inputType' => 'text',
           'eval' => array('tl_class' => 'w50')
         ),
@@ -79,10 +69,6 @@ return array(
         'link' => array(
           'label' => array('Link zu den Stellen auf KVT.de', ''),
           'inputType' => 'url'
-        ),
-        'zip' => array(
-          'label' => array('Postleitzahlen', 'Alle Postleitzahlen dieses Landkreises, mit Komma getrennt ohne Leerzeichen (bsp: 99423,99424,99435,...)'),
-          'inputType' => 'text'
         )
       )
     )

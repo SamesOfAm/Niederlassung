@@ -1,21 +1,23 @@
 <?php
-    $allPositions = 0;
-    foreach($this->areas as $area) {
-        $allPositions += $area->auPositions +=
-        $area->coPositions +=
-        $area->fPositions +=
-        $area->nPositions +=
-        $area->doppelfachPositions +=
-        $area->psychPositions +=
-        $area->aerztlPsychPositions +=
-        $area->kjPsychPositions +=
-        $area->fPositions +=
-        $area->psychSomPositions +=
-        $area->uPositions;
+function tofloat($num) {
+    $dotPos = strrpos($num, '.');
+    $commaPos = strrpos($num, ',');
+    $sep = (($dotPos > $commaPos) && $dotPos) ? $dotPos :
+        ((($commaPos > $dotPos) && $commaPos) ? $commaPos : false);
+
+    if (!$sep) {
+        return floatval(preg_replace("/[^0-9]/", "", $num));
     }
+
+    return floatval(
+        preg_replace("/[^0-9]/", "", substr($num, 0, $sep)) . '.' .
+        preg_replace("/[^0-9]/", "", substr($num, $sep+1, strlen($num)))
+    );
+}
 ?>
 
-<div class="map-wrapper">
+
+<div class="map-wrapper map-wrapper-fach">
     <div class="hover-map fach">
         {{file::<?= $this->mapfilename; ?>}}
     </div>
@@ -38,6 +40,23 @@
         <?php foreach($this->areas as $area): ?>
           <?php
             $parsedName = str_replace([' ','/',','], '-', $area->name);
+            $allPositions = 0;
+            $auPositions = tofloat($area->auPositions);
+            $coPositions = tofloat($area->coPositions);
+            $fPositions = tofloat($area->fPositions);
+            $nPositions = tofloat($area->nPositions);
+            $psychPositions = tofloat($area->psychPositions);
+            $uPositions = tofloat($area->uPositions);
+            $hnoPositions = tofloat($area->hnoPositions);
+            $hPositions = tofloat($area->hPositions);
+            $allPositions += $auPositions +=
+            $coPositions +=
+            $fPositions +=
+            $nPositions +=
+            $psychPositions +=
+            $hnoPositions +=
+            $hPositions +=
+            $uPositions;
           ?>
             <div id="popup-<?= $parsedName ?>" data-positions="<?= $allPositions ?>" class="popup-content">
                 <h4><?= $area->name ?></h4>
@@ -52,13 +71,40 @@
 
 
     <?php foreach($this->areas as $area): ?>
+        <?php
+            $parsedName = str_replace([' ','/',','], '-', $area->name);
+            $allPositions = 0;
+            $auPositions = tofloat($area->auPositions);
+            $coPositions = tofloat($area->coPositions);
+            $fPositions = tofloat($area->fPositions);
+            $nPositions = tofloat($area->nPositions);
+            $psychPositions = tofloat($area->psychPositions);
+            $uPositions = tofloat($area->uPositions);
+            $hnoPositions = tofloat($area->hnoPositions);
+            $hPositions = tofloat($area->hPositions);
+        ?>
         <div class="region-list-entry">
-            <h4><?= $area->name ?></h4>
-            <div><strong>Stellen Fachärzte</strong>: <?= $allPositions ?></div>
-            <div><a target="_blank" href="<?= $area->link ?>">Zu den Stellen</a></div>
-            <?php if($area->presentation): ?><a href="<?= $area->presentation ?>">Über diesen Landkreis</a><?php endif; ?>
-            <a href="https://www.kv-thueringen.de/praxisberatung">Praxisberatung</a>
-            <a href="https://www.kv-thueringen.de/praxisboerse">Praxisbörse</a>
+            <div class="entry-left">
+                <h4><?= $area->name ?></h4>
+                <div><strong>Stellen Fachärzte gesamt</strong>: <?= $allPositions ?></div>
+                <div><a target="_blank" href="<?= $area->link ?>">Zu den Stellen</a></div>
+                <?php if($area->presentation): ?><a href="<?= $area->presentation ?>">Über diesen Landkreis</a><br><?php endif; ?>
+                <!--<a href="https://www.kv-thueringen.de/praxisberatung">Praxisberatung</a><br>
+                <a href="https://www.kv-thueringen.de/praxisboerse">Praxisbörse</a>-->
+            </div>
+            <div class="entry-middle">
+                <div><strong>Stellen Augenärzte</strong>: <?= $auPositions ?></div>
+                <div><strong>Stellen Chirurgen und Orthopäden</strong>: <?= $coPositions ?></div>
+                <div><strong>Stellen Frauenärzte</strong>: <?= $fPositions ?></div>
+                <div><strong>Stellen Neurologen</strong>: <?= $nPositions ?></div>
+                <div><strong>Stellen Psychologen</strong>: <?= $psychPositions ?></div>
+            </div>
+            <div class="entry-right">
+                <div><strong>Stellen Urologen</strong>: <?= $uPositions ?></div>
+                <div><strong>Stellen HNO-Ärzte</strong>: <?= $hnoPositions ?></div>
+                <div><strong>Stellen HNO-Ärzte</strong>: <?= $hnoPositions ?></div>
+                <div><strong>Stellen Hautärzte</strong>: <?= $hPositions ?></div>
+            </div>
         </div>
     <?php endforeach; ?>
 </div>

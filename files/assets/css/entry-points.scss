@@ -116,6 +116,13 @@
   }
 }
 
+#wege .entry-point-box {
+  background-color: rgba(149, 214, 0, 0.4);
+  .entry-point-box-inside .entry-link-button {
+    text-shadow: 0 0 5px #639105;
+  }
+}
+
 
 
 @media screen and (max-width: $mobile) {

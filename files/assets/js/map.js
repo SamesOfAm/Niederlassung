@@ -11,14 +11,38 @@ const mapHandler = (wrapper) => {
   const zipSearchListElements = wrapperElement.querySelectorAll('.zip-search ul li');
   const zipSearchListElementLinks = wrapperElement.querySelectorAll('.zip-search ul li a');
   const closePopup = wrapperElement.querySelector('.close-popup');
+  const dottedListElement = document.createElement('li');
+  const dottedListElementAnchor = document.createElement('a');
+  const dottedContent = document.createTextNode('...');
   let enteredPopup = false;
   let darkPaths = false;
+
+  dottedListElementAnchor.appendChild(dottedContent);
+  dottedListElement.appendChild(dottedListElementAnchor);
 
   const showPopup = (area,boxX,boxY) => {
     popup.style.top = boxY + 'px';
     popup.style.left = boxX + 'px';
     popup.classList.add('shown');
     area.classList.add('shown');
+  }
+
+  const limitListEntries = () => {
+    let counter = 0;
+    let limited = false;
+    zipSearchListElements.forEach(element => {
+      if(!element.classList.contains('filtered-out') && counter > 10) {
+        limited = true;
+        element.classList.add('filtered-out');
+      } else if(!element.classList.contains('filtered-out')) {
+        counter++
+      }
+    })
+    if(limited) {
+      zipSearchList.appendChild(dottedListElement);
+    } else if(zipSearchList.lastChild.firstChild.innerHTML === '...') {
+      zipSearchList.removeChild(dottedListElement);
+    }
   }
 
   const hidePopup = () => {
@@ -42,7 +66,7 @@ const mapHandler = (wrapper) => {
   allPaths.forEach(path => {
     const popupContent = wrapperElement.getElementById('popup-'+path.getAttribute('id')) || wrapperElement.getElementById('popup-'+path.getAttribute('serif:id')) || null;
     if(popupContent) {
-      const numberPositions = popupContent.getAttribute('data-positions');
+      const numberPositions = parseFloat(popupContent.getAttribute('data-positions'));
       if(numberPositions >= 10) {
         path.style.fill = 'rgb(90, 121, 24)';
       }
@@ -153,6 +177,7 @@ const mapHandler = (wrapper) => {
         element.classList.add('remaining');
       }
     })
+    limitListEntries();
   })
 
   zipSearch.addEventListener('click', function() {
@@ -182,6 +207,8 @@ const mapHandler = (wrapper) => {
     darkPaths = false;
     popup.style.position = "fixed";
   })
+
+  limitListEntries();
 }
 
 const allMapWrappers = document.querySelectorAll('.map-wrapper');

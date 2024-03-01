@@ -40,10 +40,10 @@
           <?php
             $parsedName = str_replace([' ','/'], '-', $area->name);
           ?>
-            <div id="popup-<?= $parsedName ?>" data-positions="<?= $area->gpPositions + $area->pedPositions ?>" class="popup-content">
+            <div id="popup-<?= $parsedName ?>" data-positions="<?= $area->gpPositions ?>" class="popup-content">
                 <h4><?= $area->name ?></h4>
-                <?php if($area->gpPositions > 0): ?><span><strong>Stellen Haus- & Kinderärzte</strong>: <?= $area->gpPositions ?></span><?php endif; ?>
-                <span><a target="_blank" href="<?= $area->link ?>">Zu den Stellen</a></span>
+                <span><strong>Stellen Haus- & Kinderärzte</strong>: <?= $area->gpPositions ?></span>
+                <?php if($area->gpPositions > 0): ?><span><a target="_blank" href="<?= $area->link ?>">Zu den Stellen</a></span><?php endif; ?>
                 <a href="https://www.kv-thueringen.de/praxisberatung">Praxisberatung</a><br>
                 <a href="https://www.kv-thueringen.de/praxisboerse">Praxisbörse</a>
                 <span class="further-info-link"><a target="_blank" href="<?= $area->presentation ?>">Über diesen Landkreis</a></span>
@@ -59,11 +59,10 @@
             <h4><?= $area->name ?></h4>
             <?php if($area->gpPositions > 0): ?><div><strong>Stellen Haus- und Kinderärzte</strong>: <?= $area->gpPositions ?></div><?php endif; ?>
             <div><a target="_blank" href="<?= $area->link ?>">Zu den Stellen</a></div>
-            <?php if($area->presentation): ?><a href="<?= $area->presentation ?>">Über diesen Landkreis</a><?php endif; ?>
-            <a href="https://www.kv-thueringen.de/praxisberatung">Praxisberatung</a>
-            <a href="https://www.kv-thueringen.de/praxisboerse">Praxisbörse</a>
+            <?php if($area->presentation): ?><a href="<?= $area->presentation ?>">Über diesen Landkreis</a><br><?php endif; ?>
+            <!--<a href="https://www.kv-thueringen.de/praxisberatung">Praxisberatung</a><br>
+            <a href="https://www.kv-thueringen.de/praxisboerse">Praxisbörse</a>-->
         </div>
     <?php endforeach; ?>
 
 </div>
-

@@ -1,6 +1,6 @@
-<div class="regional-portrait">
+<div class="regional-portrait" id="<?= $this->id ?>">
     <div class="ce_text block">
-        <h1><?= $this->headline ?></h1>
+        <h2><?= $this->headline ?></h2>
     </div>
     <div class="portrait-top">
         <div class="portrait-top-left">

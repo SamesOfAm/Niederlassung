@@ -34,10 +34,6 @@ return array(
         'link' => array(
           'label' => array('Link zu den Stellen auf KVT.de', ''),
           'inputType' => 'url'
-        ),
-        'zip' => array(
-          'label' => array('Postleitzahlen', 'Alle Postleitzahlen dieses Landkreises, mit Komma getrennt ohne Leerzeichen (bsp: 99423,99424,99435,...)'),
-          'inputType' => 'text'
         )
       )
     )

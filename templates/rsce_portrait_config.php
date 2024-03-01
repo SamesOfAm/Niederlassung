@@ -12,6 +12,10 @@ return array(
       'label' => array('Überschrift', '...'),
       'inputType' => 'text'
     ),
+    'id' => array(
+      'label' => array('Eindeutiger Name', '...'),
+      'inputType' => 'text'
+    ),
     'shortInfo' => array(
       'label' => array('Steckbrief Info', 'Rechts auf "Neues Element" klicken'),
       'inputType' => 'list',

@@ -15,14 +15,14 @@
       width: 100%;
       padding: 8px 10px;
       border: none;
-      background: $bright-blue;
-      color: white;
+      background: #D6DFF2;
+      color: black;
       font-family: 'Barlow', sans-serif;
       cursor: pointer;
       box-sizing: border-box;
       transition: filter 250ms;
       &:hover {
-        filter: brightness(1.2);
+        filter: brightness(1.1);
       }
     }
     &.widget-submit button {

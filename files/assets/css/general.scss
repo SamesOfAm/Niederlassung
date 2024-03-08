@@ -65,7 +65,7 @@ a {
   }
 }
 
-*:not(nav):not(.dropdown):not(td) > ul {
+*:not(nav):not(.dropdown):not(td):not(li) > ul {
   padding-left: 175px !important;
 }
 

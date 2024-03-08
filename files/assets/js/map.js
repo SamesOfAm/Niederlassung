@@ -19,6 +19,14 @@ const mapHandler = (wrapper) => {
 
   dottedListElementAnchor.appendChild(dottedContent);
   dottedListElement.appendChild(dottedListElementAnchor);
+  dottedListElementAnchor.setAttribute('href','#');
+  dottedListElementAnchor.addEventListener('click', function(event) {
+    event.preventDefault();
+    zipSearchListElements.forEach(element => {
+      element.classList.remove('filtered-out');
+    })
+    dottedListElement.style.display = 'none';
+  })
 
   const showPopup = (area,boxX,boxY) => {
     popup.style.top = boxY + 'px';
@@ -27,11 +35,11 @@ const mapHandler = (wrapper) => {
     area.classList.add('shown');
   }
 
-  const limitListEntries = () => {
+  const limitListEntries = (number) => {
     let counter = 0;
     let limited = false;
     zipSearchListElements.forEach(element => {
-      if(!element.classList.contains('filtered-out') && counter > 10) {
+      if(!element.classList.contains('filtered-out') && counter > number) {
         limited = true;
         element.classList.add('filtered-out');
       } else if(!element.classList.contains('filtered-out')) {
@@ -102,7 +110,7 @@ const mapHandler = (wrapper) => {
   });
 
   document.body.addEventListener('click', function(event) {
-    if(event.target !== zipSearch) {
+    if(event.target !== zipSearch && event.target !== dottedListElementAnchor) {
       zipSearchList.style.display = "none";
       zipSearch.classList.remove('dropdown-open');
     }
@@ -177,7 +185,7 @@ const mapHandler = (wrapper) => {
         element.classList.add('remaining');
       }
     })
-    limitListEntries();
+    limitListEntries(10);
   })
 
   zipSearch.addEventListener('click', function() {
@@ -208,7 +216,7 @@ const mapHandler = (wrapper) => {
     popup.style.position = "fixed";
   })
 
-  limitListEntries();
+  limitListEntries(10);
 }
 
 const allMapWrappers = document.querySelectorAll('.map-wrapper');
@@ -274,5 +282,17 @@ if(document.querySelector('.switch-maps-button')) {
   })
 }
 
-
+if(document.querySelector('.region-list-subpage') && window.location.href.contains('tab=fach')) {
+  const yLocation = document.querySelector('.ce_tabcontrol').getBoundingClientRect().y;
+  setTimeout(function() {
+    document.querySelector('.tab_1').click();
+  }, 80);
+  setTimeout(function() {
+    window.scrollTo({
+      left: 0,
+      top: yLocation,
+      behavior: 'smooth'
+    })
+  }, 160)
+}
 

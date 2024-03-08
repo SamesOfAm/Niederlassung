@@ -314,6 +314,7 @@
 
 @media screen and (max-width: $mobile) {
   #title-image {
+    display: none;
     height: 350px;
     &:after {
       bottom: 0vw;

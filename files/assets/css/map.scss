@@ -159,7 +159,8 @@
       left: 50%;
       z-index: 1;
       filter: drop-shadow(0 0 20px #cecece);
-      width: 1100px;
+      width: 90%;
+      max-width: 1100px;
       transform: translateX(-50%);
     }
   }
@@ -383,13 +384,35 @@
   }
 }
 
+@media screen and (max-width: $tablet) {
+  .closed-notification {
+    top: 20vw;
+  }
+  .switch-maps-button {
+    right: 17vw;
+  }
+  .zip-search {
+    top: 11vw;
+    right: 19vw;
+  }
+  #header .inside .header-logo {
+    width: 150px;
+    height: 150px;
+    padding: 27px;
+  }
+}
+
 @media screen and (max-width: $mobile) {
-  #map-subpage .map-wrapper-fach .region-list-entry {
-    display: block;
+  .map-wrapper {
+    display: none;
   }
 
   .mod_article.map {
-    display: none;
+    background: none;
+  }
+
+  #map-subpage .map-wrapper-fach .region-list-entry {
+    display: block;
   }
 
   .mod_article.entry-points {

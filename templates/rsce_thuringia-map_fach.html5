@@ -1,19 +1,21 @@
 <?php
-function tofloat($num) {
-    $dotPos = strrpos($num, '.');
-    $commaPos = strrpos($num, ',');
-    $sep = (($dotPos > $commaPos) && $dotPos) ? $dotPos :
-        ((($commaPos > $dotPos) && $commaPos) ? $commaPos : false);
+    if(!function_exists('tofloat')) {
+        function tofloat($num) {
+            $dotPos = strrpos($num, '.');
+            $commaPos = strrpos($num, ',');
+            $sep = (($dotPos > $commaPos) && $dotPos) ? $dotPos :
+                ((($commaPos > $dotPos) && $commaPos) ? $commaPos : false);
 
-    if (!$sep) {
-        return floatval(preg_replace("/[^0-9]/", "", $num));
+            if (!$sep) {
+                return floatval(preg_replace("/[^0-9]/", "", $num));
+            }
+
+            return floatval(
+                preg_replace("/[^0-9]/", "", substr($num, 0, $sep)) . '.' .
+                preg_replace("/[^0-9]/", "", substr($num, $sep+1, strlen($num)))
+            );
+        }
     }
-
-    return floatval(
-        preg_replace("/[^0-9]/", "", substr($num, 0, $sep)) . '.' .
-        preg_replace("/[^0-9]/", "", substr($num, $sep+1, strlen($num)))
-    );
-}
 ?>
 
 
@@ -61,7 +63,7 @@ function tofloat($num) {
             <div id="popup-<?= $parsedName ?>" data-positions="<?= $allPositions ?>" class="popup-content">
                 <h4><?= $area->name ?></h4>
                 <span><strong>Stellen Fachärzte</strong>: <?= $allPositions ?></span>
-                <span><a target="_blank" href="<?= $area->link ?>">Zu den Stellen</a></span>
+                <span><a href="{{link_url::9}}?tab=fach">Zu den Stellen</a></span>
                 <a href="https://www.kv-thueringen.de/praxisberatung">Praxisberatung</a><br>
                 <a href="https://www.kv-thueringen.de/praxisboerse">Praxisbörse</a>
                 <span class="further-info-link"><a target="_blank" href="<?= $area->presentation ?>">Über diesen Landkreis</a></span>
